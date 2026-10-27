@@ -1,0 +1,276 @@
+/* ==========================================================================
+  1. RESET & VARIÁVEIS
+  ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Cores principais */
+  --cor-fundo: #FAF6F0;          /* Off-white aconchegante */
+  --cor-card: #FFFFFF;           /* Fundo dos itens */
+  --cor-primaria: #8C2D19;       /* Terracota / Dendê escuro */
+  --cor-secundaria: #D96B27;     /* Laranja dendê vibrante */
+  --cor-detalhe: #E6A15C;        /* Amarelo ouro / dendê */
+  --cor-texto-escuro: #2D2421;   /* Texto principal */
+  --cor-texto-suave: #6B5E57;    /* Subtítulos e descrições */
+  --cor-borda: #EBE3D5;          /* Linhas e divisores */
+
+  /* Fontes */
+  --fonte-titulo: 'Cormorant Garamond', Georgia, serif;
+  --fonte-corpo: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Sombras e Efeitos */
+  --sombra-card: 0 10px 25px rgba(45, 36, 33, 0.08);
+  --sombra-hover: 0 15px 35px rgba(140, 45, 25, 0.15);
+  --transicao: all 0.3s ease;
+}
+
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-escuro);
+  font-family: var(--fonte-corpo);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+  2. CABEÇALHO (TOPO)
+  ========================================================================== */
+.topo {
+  background: linear-gradient(135deg, #3A1007 0%, var(--cor-primaria) 100%);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 60px 20px 50px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.topo-conteudo {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.assinatura {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--cor-detalhe);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.topo h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.lema {
+  font-family: var(--fonte-titulo);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: #F3E5D8;
+  font-weight: 500;
+}
+
+/* Faixa decorativa no topo */
+.faixa {
+  height: 5px;
+  background: linear-gradient(90deg, var(--cor-primaria), var(--cor-detalhe), var(--cor-secundaria));
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* ==========================================================================
+  3. SEÇÃO CARDÁPIO
+  ========================================================================== */
+.cardapio {
+  max-width: 900px;
+  margin: 50px auto 80px;
+  padding: 0 20px;
+}
+
+.cardapio-titulo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cardapio-titulo h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 2.5rem;
+  color: var(--cor-primaria);
+  margin-bottom: 8px;
+}
+
+.cardapio-titulo p {
+  color: var(--cor-texto-suave);
+  font-size: 1rem;
+}
+
+/* Lista de Pratos */
+.lista {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Card do Item */
+.item {
+  background-color: var(--cor-card);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  box-shadow: var(--sombra-card);
+  border: 1px solid var(--cor-borda);
+  transition: var(--transicao);
+}
+
+.item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-hover);
+  border-color: rgba(217, 107, 39, 0.3);
+}
+
+/* Estilo para Imagens (`<img>` e `<div>` com background) */
+.foto {
+  width: 110px;
+  height: 110px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  object-fit: cover; /* Garante que imagens <img> mantenham a proporção sem distorcer */
+  background-size: cover;
+  background-position: center;
+}
+
+/* Gradientes para simulação ou imagens locais */
+.foto.acaraje {
+  background: linear-gradient(135deg, #D96B27, #8C2D19);
+}
+
+.foto.moqueca {
+  background: linear-gradient(135deg, #E6A15C, #D96B27);
+}
+
+.foto.bobo {
+  background: linear-gradient(135deg, #F2B705, #D96B27);
+}
+
+.foto.cocada {
+  background: linear-gradient(135deg, #FFF3E0, #D9A05B);
+}
+
+/* Detalhes do Prato */
+.detalhes {
+  flex: 1;
+  width: 100%;
+}
+
+.categoria {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: var(--cor-secundaria);
+  margin-bottom: 4px;
+}
+
+.linha {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.linha h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  color: var(--cor-texto-escuro);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Linha pontilhada estilo cardápio clássico */
+.pontilhado {
+  flex: 1;
+  border-bottom: 2px dotted var(--cor-borda);
+  height: 1px;
+}
+
+.preco {
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--cor-primaria);
+  white-space: nowrap;
+}
+
+.descricao {
+  font-size: 0.92rem;
+  color: var(--cor-texto-suave);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+  4. RODAPÉ
+  ========================================================================== */
+.rodape {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #F0E8DD;
+  border-top: 1px solid var(--cor-borda);
+  color: var(--cor-texto-suave);
+  font-size: 0.9rem;
+}
+
+.rodape-nome {
+  font-family: var(--fonte-titulo);
+  font-size: 1.8rem;
+  color: var(--cor-primaria);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+  .topo h1 {
+    font-size: 2.8rem;
+  }
+
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px;
+  }
+
+  .foto {
+    width: 100%;
+    height: 160px;
+  }
+
+  .linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .linha h3 {
+    white-space: normal;
+  }
+
+  .pontilhado {
+    display: none; /* Oculta pontilhado no mobile para manter layout limpo */
+  }
+
+  .preco {
+    margin-left: 0;
+  }
+}

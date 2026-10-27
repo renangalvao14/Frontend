@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>Verificador de Idade</title>
+   <style></style>
+</head>
+<body>
+
+   <div class="container">
+       <h1>Verificador de idade</h1>
+       <p>Digite sua idade para continuar.</p>
+
+
+       <input
+           type="number"
+           id="idade"
+           placeholder="Sua idade"
+           min="0"
+           step="1"
+       >
+
+
+       <button onclick="verificarIdade()">
+           Verificar idade
+       </button>
+
+
+       <p id="resultado" aria-live="polite"></p>
+   </div>
+
+
+   <script>
+       function verificarIdade() {
+           const idade = document.getElementById("idade").value;
+           const resultado = document.getElementById("resultado");
+
+
+           resultado.className = "";
+
+
+           if (idade.trim() === "" ||
+               !Number.isInteger(Number(idade)) ||
+               Number(idade) < 0) {
+
+
+               resultado.textContent = "Digite uma idade válida.";
+               resultado.classList.add("erro");
+
+
+           } else if (Number(idade) >= 18) {
+
+
+               resultado.textContent = "Maior de idade";
+               resultado.classList.add("maior");
+
+
+           } else {
+
+
+               resultado.textContent = "Menor de idade";
+               resultado.classList.add("menor");
+
+
+           }
+       }
+   </script>
+
+
+</body>
+</html>
